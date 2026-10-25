@@ -6,7 +6,7 @@ const ASSETS = [
   "./icons/logo.png",
   "./icons/logo.png"
 ];
-
+// sdsdf
 // ===== O'rnatish =====
 self.addEventListener("install", (event) => {
   console.log("Service Worker o'rnatilmoqda...");
