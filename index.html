@@ -372,6 +372,13 @@ $("#a2").onclick=()=>{S.fs=Math.min(24,(S.fs||17)+1);document.documentElement.st
 $("#hc").onclick=()=>{S.hc=!S.hc;document.documentElement.dataset.c=S.hc?"hc":"";save()};
 if(S.fs)document.documentElement.style.setProperty("--fs",S.fs+"px");if(S.hc)document.documentElement.dataset.c="hc";
 home();
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => console.log('Service Worker ro\'yxatdan o\'tdi:', reg.scope))
+      .catch(err => console.error('Service Worker xatosi:', err));
+  });
+}
 </script>
 </body>
 </html>

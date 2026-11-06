@@ -1,9 +1,8 @@
-const CACHE_NAME = "inkluziv-pwa-v1";
+const CACHE_NAME = "inkluziv-pwa-v2";
 const ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./icons/logo.png",
   "./icons/logo.png"
 ];
 
