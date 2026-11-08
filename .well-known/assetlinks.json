@@ -1,10 +1,8 @@
 [{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "app.netlify.inkluziv_talim.twa",
-    "sha256_cert_fingerprints": [
-      "02:BA:AB:A3:51:DA:61:46:F1:0E:DB:F1:A3:FE:78:D0:75:EA:E3:E8:6C:78:1C:6E:C8:B2:C9:2E:32:FB:B3:63"
-    ]
-  }
-}]
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.netlify.inkluziv_talim.twa",
+        "sha256_cert_fingerprints": ["F8:AC:55:E3:17:91:F7:20:74:06:F1:EA:32:5A:45:F4:CB:DE:04:39:E2:DE:7B:45:E4:CA:25:40:1D:69:89:4B"]
+      }
+    }]
