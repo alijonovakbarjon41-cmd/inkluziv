@@ -1,8 +1,10 @@
 [{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "io.github.alijonovakbarjon41_cmd.twa",
-        "sha256_cert_fingerprints": ["B5:66:2F:FC:A2:32:D0:A6:C7:00:93:9D:4F:7F:8C:1F:3A:D5:EE:09:51:72:CC:39:08:50:42:2B:E6:0A:35:8C"]
-      }
-    }]
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.netlify.inkluziv_talim.twa",
+    "sha256_cert_fingerprints": [
+      "02:BA:AB:A3:51:DA:61:46:F1:0E:DB:F1:A3:FE:78:D0:75:EA:E3:E8:6C:78:1C:6E:C8:B2:C9:2E:32:FB:B3:63"
+    ]
+  }
+}]
