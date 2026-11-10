@@ -2,7 +2,7 @@
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "app.netlify.inkluziv_talim.twa",
-        "sha256_cert_fingerprints": ["F8:AC:55:E3:17:91:F7:20:74:06:F1:EA:32:5A:45:F4:CB:DE:04:39:E2:DE:7B:45:E4:CA:25:40:1D:69:89:4B"]
+        "package_name": "io.github.alijonovakbarjon41_cmd.twa",
+        "sha256_cert_fingerprints": ["B5:66:2F:FC:A2:32:D0:A6:C7:00:93:9D:4F:7F:8C:1F:3A:D5:EE:09:51:72:CC:39:08:50:42:2B:E6:0A:35:8C"]
       }
     }]
