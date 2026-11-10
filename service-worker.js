@@ -41,6 +41,9 @@ self.addEventListener("fetch", (event) => {
   // Chrome extension va boshqa tashqi so'rovlarni o'tkazib yuborish
   if (!event.request.url.startsWith(self.location.origin)) return;
 
+  // Katta video fayllarni Service Worker keshga olmasdan to'g'ridan-to'g'ri o'tkazishi (stream)
+  if (event.request.url.includes('/videos/') || event.request.url.endsWith('.mp4')) return;
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;

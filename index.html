@@ -43,6 +43,16 @@ h2.sec{font-size:1.3rem;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px 
 .back{margin-bottom:10px}.note{color:var(--mu);font-size:.9rem}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:9px 18px;border-radius:6px;z-index:30;display:none}
 @media(max-width:640px){.mt{grid-template-columns:1fr}}
+
+.vid-card{background:var(--cd);border:1px solid var(--bd);border-left:4px solid var(--p);border-radius:8px;padding:14px;margin:16px 0;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+.vid-hd{display:flex;align-items:center;gap:8px;font-weight:600;font-size:1.05rem;color:var(--p);margin-bottom:10px}
+.vid-hd svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
+.vid-card video{width:100%;max-height:480px;border-radius:6px;background:#000;display:block}
+.vid-ft{font-size:.85rem;color:var(--mu);margin-top:8px;line-height:1.4}
+.tag-vid{display:inline-block;background:var(--p);color:#fff;font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:middle}
+@media(prefers-color-scheme:dark){.tag-vid{color:#10151e}}
+[data-c=hc] .tag-vid{background:#ffe600;color:#000}
+[data-c=hc] .vid-card{border-color:#fff}
 </style>
 </head>
 <body>
@@ -66,7 +76,8 @@ s:[[`Inklyuziya nima?`,`Inklyuziv ta'lim - maxsus ta'lim ehtiyojlari bo'lgan bol
 w:[[`Inklyuziya`,`Muhit barcha o'quvchilarning ehtiyojiga moslashadigan, hamma birga o'qiydigan model`],[`Integratsiya`,`Bola umumiy sinfda, lekin undan moslashish kutiladi`],[`Segregatsiya`,`Bolalarning alohida muassasalarda ajratib o'qitilishi`],[`Qulaylik`,`Jismoniy, axborot va metodik jihatdan hamma uchun mavjudlik`]],
 q:[[`Inklyuziyada bola mavjud tizimga to'liq moslashishi shart.`,0],[`Salamanka bayonoti 1994-yilda qabul qilingan.`,1],[`Inklyuziya faqat nogironligi bo'lgan bolalarga tegishli.`,0],[`BMT Konvensiyasining 24-moddasi ta'limga bag'ishlangan.`,1],[`O'zbekiston Konvensiyani 2021-yilda ratifikatsiya qilgan.`,1]],
 z:[[`Inklyuziyaning asosiy g'oyasi qaysi?`,`Tizim bolaning ehtiyojiga moslashadi`,`Bola tizimga moslashadi`,`Bolalar ajratib o'qitiladi`],[`Salamanka bayonoti qaysi yilda qabul qilingan?`,`1994`,`1990`,`2006`],[`O'zbekiston Konvensiyani qachon ratifikatsiya qilgan?`,`2021`,`2009`,`2015`]]},
-{t:`Xorijiy davlatlar va O'zbekistonda kasb-hunar ta'limi inklyuziv amaliyotining xususiyatlari`,
+{t:`Rivojlangan xorijiy davlatlarda ta'lim tizimi: inklyuziv amaliyot xususiyatlari`,
+v:`videos/Inkluziv.mp4`,
 s:[[`Kasb-hunar ta'limining o'rni`,`Maktabdan keyingi bosqichda asosiy masala - yoshning mehnat bozoriga kirishi va mustaqil hayot kechirishi. Shu sababli inklyuziv kasb-hunar ta'limida amaliyot, ish joyiga moslashish va ishga joylashtirish nazariy bilimdan kam bo'lmagan ahamiyatga ega.`],
 [`Xorijiy yondashuvlar`,`<b>Germaniya:</b> nazariy o'qish korxonadagi amaliyot bilan uyg'unlashgan ikki tomonlama (dual) tizim; nogironligi bor yoshlar uchun maxsus kasbiy ta'lim markazlari (Berufsbildungswerke) ham mavjud. <b>Finlyandiya:</b> kasbiy ta'limda har bir o'quvchi uchun shaxsiy kompetensiyani rivojlantirish rejasi (HOKS) tuziladi. <b>AQSh:</b> «qo'llab-quvvatlanadigan bandlik» modelida ish joyida mutaxassis-murabbiy (job coach) xodimga yordam beradi.`],
 [`Umumiy xususiyatlar`,`Samarali tizimlarda quyidagilar uchraydi: kasbga erta yo'naltirish; ish beruvchilar bilan yaqin hamkorlik; ish joyida yordamchi-murabbiy; moslashtirilgan baholash; bitiruvchini ishga joylashgandan keyin ham kuzatish.`],
@@ -329,7 +340,7 @@ E(`Yakuniy loyiha: inklyuziv maktab modeli`,
 [[`Inklyuziv maktab modeli faqat binoni o'z ichiga oladi.`,0],[`Modelda monitoring bo'lishi kerak.`,1],[`Loyiha resurslarga mos bo'lishi zarur.`,1]],
 [[`Modelning komponentlaridan biri?`,`Monitoring`,`Reklama`,`Sport`],[`Loyiha nimaga mos bo'lishi kerak?`,`Resurslarga`,`Tasodifga`,`Modaga`],[`Amalga oshirish rejasida nima bo'ladi?`,`Bosqich, mas'ul, muddat`,`Faqat sarlavha`,`Faqat rasm`]])
 ];
-function E(t,s,w,q,z){return{t,s,w,q,z}}
+function E(t,s,w,q,z,v){return{t,s,w,q,z,v}}
 const titles=T.map(x=>x.t);
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
@@ -343,10 +354,23 @@ const nb=(a,b)=>String(b).length&&a;
 function home(){
 $("#xp").textContent="Bajarildi: "+doneN()+" / "+T.length;
 $("#app").innerHTML=`<section class="hero"><h1>Inklyuziv ta'lim: hamma uchun maktab</h1><p>Inklyuziv ta'limning nazariy asoslari, xalqaro va milliy amaliyoti bo'yicha o'quv platformasi. Har bir mavzu dars materiali, tushunchalarni juftlash, tasdiqlarni tekshirish va test mashqlaridan iborat.</p><p><b>${T.length} mavzu</b> &middot; <b>3 turdagi mashq</b> &middot; <b>bajarilgan: ${doneN()}</b></p></section>
-<main><h2 class="sec">Mavzular</h2><div class="grid">${titles.map((t,i)=>`<button class="cd ${gd(i)>=3?"dn":""}" data-i="${i}"><span class="n">${i+1}-mavzu${gd(i)>=3?" &middot; bajarildi":""}</span><b>${t}</b><div class="bar"><i style="width:${Math.min(100,gd(i)/3*100)}%"></i></div></button>`).join("")}</div></main>`;
+<main><h2 class="sec">Mavzular</h2><div class="grid">${T.map((x,i)=>`<button class="cd ${gd(i)>=3?"dn":""}" data-i="${i}"><span class="n">${i+1}-mavzu${x.v?`<span class="tag-vid">📹 Video dars</span>`:""}${gd(i)>=3?" &middot; bajarildi":""}</span><b>${x.t}</b><div class="bar"><i style="width:${Math.min(100,gd(i)/3*100)}%"></i></div></button>`).join("")}</div></main>`;
 $$(".cd").forEach(b=>b.onclick=()=>topic(+b.dataset.i));window.scrollTo(0,0)}
 function topic(i){const x=T[i];
 $("#app").innerHTML=`<main><button class="back" id="bk">&larr; Mavzular ro'yxati</button><h1 style="margin:6px 0 4px">${i+1}. ${x.t}</h1><div class="bar"><i style="width:${Math.min(100,gd(i)/3*100)}%"></i></div><p class="note">Mashqlar: ${gd(i)} / 3 bajarildi</p>
+${x.v ? `
+<div class="vid-card">
+  <div class="vid-hd">
+    <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+    <span>Mavzuga oid video darslik</span>
+  </div>
+  <video controls playsinline preload="metadata">
+    <source src="${x.v}" type="video/mp4">
+    Brauzeringiz ushbu videoni qo'llab-quvvatlamaydi.
+  </video>
+  <div class="vid-ft">Ushbu darslikda rivojlangan xorijiy davlatlarda ta'lim tizimi va tajribasi yoritilgan.</div>
+</div>
+` : ''}
 ${x.s.map(([h,p])=>`<div class="bx"><h3>${h}</h3><p style="margin:0">${p}</p></div>`).join("")}
 <h2 class="sec">Mashqlar</h2><div class="tabs"><button data-g="m" class="on">Juftlash</button><button data-g="t">Tasdiqni tekshirish</button><button data-g="z">Test</button></div><div class="gm" id="gm"></div>
 ${F[i]?`<h2 class="sec">Rasmiy test</h2><p>Mashqlardan so'ng rasmiy bilim testini topshiring.</p><button class="pr" id="ft">Rasmiy testni boshlash</button>`:""}</main>`;
